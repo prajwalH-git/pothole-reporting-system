@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pothole Reporter</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🕳️ Report a Pothole</h1>
+
+    <form id="reportForm" onsubmit="submitReport(event)">
+      <label>Title</label>
+      <input type="text" name="title" required>
+
+      <label>Description</label>
+      <textarea name="description" required></textarea>
+
+      <label>Photo</label>
+      <input type="file" name="photo">
+
+      <label>Severity</label>
+      <select name="severity">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+
+      <label>Your Name (optional)</label>
+      <input type="text" name="reported_by">
+
+      <input type="hidden" id="lat" name="lat">
+      <input type="hidden" id="lon" name="lon">
+
+      <button type="button" onclick="getLocation()">📍 Use My Location</button>
+      <button type="submit">🚧 Report Pothole</button>
+    </form>
+
+    <div id="map"></div>
+
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="/admin"><button>👨‍💼 Go to Admin Dashboard</button></a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/user.js"></script>
+</body>
+</html>
